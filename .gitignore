@@ -1,0 +1,9 @@
+vendor/*
+database/database.sqlite
+logs/app.log
+uploads/
+cache/
+node_modules/
+dist/bundle.js
+dist/bundle.js.map
+npm-debug.log
