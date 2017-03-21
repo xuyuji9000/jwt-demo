@@ -66,3 +66,16 @@ upload picture
 http -f POST http://localhost:3001/uploadimage/upload background@background.jpg
 ```
 
+### jwt
+
+get token
+
+```bash
+http POST http://localhost:3001/jwt/token
+```
+
+get authorized info
+
+```bash
+http POST http://localhost:8080/api/jwt/test
+```

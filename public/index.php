@@ -9,11 +9,11 @@ $dotenv->load();
 $settings = require __DIR__ . '/../config/settings.php';
 $app = new \Slim\App($settings);
 
-// Register Middleware
-require __DIR__.'/../config/middleware.php';
+// Register dependencies
+require __DIR__.'/../config/dependencies.php';
 
 // Register Middleware
-require __DIR__.'/../config/dependencies.php';
+require __DIR__.'/../config/middleware.php';
 
 // Register Routes
 require __DIR__ . '/../config/routes.php';

@@ -1,6 +1,9 @@
 <?php
 // Application Middleware
 
+// Dependency Injection Container
+$container = $app->getContainer();
+
 // e.g: $app->add(new \Slim\Csrf\Guard);
 $app->add(new \Slim\Middleware\Session([
     'name' => 'dummy_name',
@@ -11,7 +14,15 @@ $app->add(new \Slim\Middleware\Session([
 // Cross Domain Access
 $app->add(function($request, $response, $next){
     $response = $next($request, $response);
-    var_dump(getenv('CSRF'));
-    $response = $response->withHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+    $response = $response->withHeader('Access-Control-Allow-Origin', getenv('CSRF'));
     return $response;
 });
+
+// Json Web Token
+$app->add(new \Slim\Middleware\JwtAuthentication([
+    'path' => '/api',
+    'secret' => getenv('JWT_SECRET'),
+    'callback' => function($request, $response, $arguments) use ($container) {
+        $container['jwt'] = $arguments['decoded'];
+    }
+]));

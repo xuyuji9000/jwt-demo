@@ -47,3 +47,9 @@ $capsule = new Illuminate\Database\Capsule\Manager;
 $capsule->addConnection($container->get('settings')['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
+
+// json web token
+$container['jwt'] = function($c)
+{
+    return new StdClass;
+};
