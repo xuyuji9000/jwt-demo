@@ -1,5 +1,5 @@
-# slim react skeleton
-This is slim react skeleton.
+# jwt-demo
+This is a jwt demo.
 
 ## directories
 
