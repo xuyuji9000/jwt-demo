@@ -23,6 +23,7 @@
   "homepage": "https://github.com/xuyuji9000/php-image-server#readme",
   "dependencies": {
     "axios": "^0.15.3",
+    "jwt-decode": "^2.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-dropzone": "^3.12.2"
