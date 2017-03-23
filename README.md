@@ -77,5 +77,5 @@ http POST http://localhost:3001/jwt/token
 get authorized info
 
 ```bash
-http POST http://localhost:8080/api/jwt/test
+http POST http://localhost:3001/api/jwt/test
 ```
