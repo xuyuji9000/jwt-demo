@@ -14,7 +14,9 @@ $app->add(new \Slim\Middleware\Session([
 // Cross Domain Access
 $app->add(function($request, $response, $next){
     $response = $next($request, $response);
-    $response = $response->withHeader('Access-Control-Allow-Origin', getenv('CSRF'));
+    $response = $response
+        ->withHeader('Access-Control-Allow-Origin', getenv('CSRF'))
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization');
     return $response;
 });
 

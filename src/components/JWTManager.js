@@ -9,11 +9,13 @@ class JWTManager extends Component
 
         this.state = {
             token: '',
-            decodedToken: ''
+            decodedToken: '',
+            authorizedInfo: ''
         }
 
         this.handleGetToken= this.handleGetToken.bind(this);
         this.handlleDecode= this.handlleDecode.bind(this);
+        this.handleRequestWithToken = this.handleRequestWithToken.bind(this);
     }
     
     handleGetToken()
@@ -42,17 +44,43 @@ class JWTManager extends Component
         }
     }
 
+    handleRequestWithToken()
+    {
+        var self = this;
+        var token = this.state.token;
+        if(token)
+        {
+            var instance = axios.create({
+                baseURL: 'http://localhost:3001',
+                headers: {Authorization: 'Bearer '+token}
+            });
+            instance.post('/api/jwt/test')
+                .then(function(response){
+                    console.log(response);
+                    self.setState({authorizedInfo: response.data})
+                })
+                .catch(function(error){
+                    console.log(error);
+                });
+
+        }
+    }
+
     render()
     {
         return (
             <div>
                 <button onClick={this.handleGetToken}>Get Token</button>
                 <button onClick={this.handlleDecode}>Decode</button>
+                <button onClick={this.handleRequestWithToken}>Request With Token</button>
                 <p>
                     Token: {this.state.token}
                 </p>
                 <p>
                     Decoded Token: {this.state.decodedToken}
+                </p>
+                <p>
+                    Authorized Info: {this.state.authorizedInfo}
                 </p>
             </div>
         );
