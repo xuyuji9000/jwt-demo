@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import ImageUpload from './components/ImageUpload'; 
+import JWTManager from './components/JWTManager';
 
 const App = (
     <div>
-        <div>Hello World</div>
-        <ImageUpload></ImageUpload>
+        <JWTManager></JWTManager>
     </div>
 );
 

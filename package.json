@@ -7,9 +7,10 @@
     "test": "tests"
   },
   "scripts": {
+    "setup": "npm i && composer install",
     "build:dev": "webpack-dev-server --inline --hot",
     "build:prod": "webpack",
-    "setup": "npm i && composer install"
+    "backend:up": "pushd public && php -S localhost:3001"
   },
   "repository": {
     "type": "git",
