@@ -33,9 +33,8 @@ class JWTManager extends Component
         var token = this.state.token;
         if(token)
         {
-            var base64Url = token.split('.')[1];
-            var base64 = base64Url.replace('-', '+').replace('_', '/');
-            var decoded = JSON.stringify(JSON.parse(window.atob(base64)), null, 2);
+            var payload = token.split('.')[1];
+            var decoded = JSON.stringify(JSON.parse(window.atob(payload)), null, 2);
             
             this.setState({
                 decodedToken: decoded
