@@ -9,7 +9,7 @@ class JWTController extends HomeController
     public function token($req, $res, $args)
     {
         $now = new DateTime();
-        $future = new DateTime("now +2 hours");
+        $future = new DateTime("now +30 seconds");
 
         $payload = array(
             "iat" => $now->getTimeStamp(),

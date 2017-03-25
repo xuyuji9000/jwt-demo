@@ -60,7 +60,7 @@ class JWTManager extends Component
                     self.setState({authorizedInfo: response.data})
                 })
                 .catch(function(error){
-                    console.log(error);
+                    alert('Token overdue, please login.')
                 });
 
         }
